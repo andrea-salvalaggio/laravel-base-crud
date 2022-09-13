@@ -2,6 +2,7 @@
 
 use App\Models\Comic;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class ComicsTableSeeder extends Seeder
 {
@@ -132,6 +133,7 @@ class ComicsTableSeeder extends Seeder
             $newComic->series = $comic['series'];
             $newComic->sale_date = $comic['sale_date'];
             $newComic->type = $comic['type'];
+            $newComic->slug = Str::slug($newComic->title, '-');
             $newComic->save();
         }
     }
