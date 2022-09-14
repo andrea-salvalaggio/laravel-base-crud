@@ -59,6 +59,8 @@ class ComicController extends Controller
         $lastComicId = (Comic::orderBy('id', 'desc')->first()->id) + 1;
         $comic->slug = Str::slug($comic->title, '-') . '-' . $lastComicId;
         $comic->save();
+
+        return redirect()->route('comics.show', $comic->id);
         }
 
     /**
