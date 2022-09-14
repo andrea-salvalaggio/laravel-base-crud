@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ComicController extends Controller
 {
@@ -36,8 +37,29 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-    }
+        $data = $request->all();
+
+        // $newComic->title = $comic['title'];
+        //     $newComic->description = $comic['description'];
+        //     $newComic->thumb = $comic['thumb'];
+        //     $newComic->price = $comic['price'];
+        //     $newComic->series = $comic['series'];
+        //     $newComic->sale_date = $comic['sale_date'];
+        //     $newComic->type = $comic['type'];
+
+        $comic = new Comic();
+        $comic->title = $data['title'];
+        $comic->thumb = $data['thumb'];
+        $comic->description = $data['description'];
+        $comic->series = $data['series'];
+        $comic->type = $data['type'];
+        $comic->sale_date = $data['sale_date'];
+        $comic->price = $data['price'];
+
+        $lastComicId = (Comic::orderBy('id', 'desc')->first()->id) + 1;
+        $comic->slug = Str::slug($comic->title, '-') . '-' . $lastComicId;
+        $comic->save();
+        }
 
     /**
      * Display the specified resource.
