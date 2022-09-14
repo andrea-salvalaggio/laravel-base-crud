@@ -8,22 +8,39 @@
             <div class="col-12">
                 <form action="{{ route('comics.store') }}" method="POST">
                     @csrf
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                            else.</small>
+
+                    <div class="form-group mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Title</label>
+                        <input type="email" class="form-control" id="input-title" name="title">
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <div class="form-group mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Cover</label>
+                        <input type="email" class="form-control" id="input-cover" name="thumb">
                     </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <div class="form-group mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <textarea class="form-control" id="input-description" rows="3" name="description"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="form-group mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Series</label>
+                        <input type="email" class="form-control" id="input-series" name="series">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Type</label>
+                        <select class="form-select" aria-label="Default select example" name="type">
+                            <option selected>Choose type of comics</option>
+                            <option value="1">comic book</option>
+                            <option value="2">graphic novel</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Sale date</label>
+                        <input type="date" class="form-control" id="input-date" name="sale_date">
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <button type="submit" class="btn btn-primary">Send your comic</button>
+                    </div>
                 </form>
             </div>
         </div>
