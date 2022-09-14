@@ -55,7 +55,7 @@
                     </div>
 
                     <div class="text-center mt-5">
-                        <button type="submit" class="btn btn-primary">Send your comic</button>
+                        <button type="submit" class="btn btn-outline-primary">Send your comic</button>
                     </div>
                 </form>
             </div>
