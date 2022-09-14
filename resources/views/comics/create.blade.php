@@ -11,11 +11,11 @@
 
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Title</label>
-                        <input type="email" class="form-control" id="input-title" name="title">
+                        <input type="text" class="form-control" id="input-title" name="title">
                     </div>
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Cover</label>
-                        <input type="email" class="form-control" id="input-cover" name="thumb">
+                        <input type="tetx" class="form-control" id="input-cover" name="thumb">
                     </div>
                     <div class="form-group mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Series</label>
-                        <input type="email" class="form-control" id="input-series" name="series">
+                        <input type="text" class="form-control" id="input-series" name="series">
                     </div>
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Type</label>
