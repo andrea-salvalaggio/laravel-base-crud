@@ -39,7 +39,8 @@
                                 <td> {{ $comic->price }} </td>
                                 <td>
                                     <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-success">Edit</a>
-                                    <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="d-inline form-delete">
+                                    <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="d-inline form-delete"
+                                        data-comic-name="{{ $comic->title }}">
                                         @csrf
                                         @method('DELETE')
                                         
@@ -62,14 +63,17 @@
 @section('footer-scripts')
     <script>
         
-        const deleteFormElement = document.querySelectorAll('.delete-form');
-        deleteFormElement.array.forEach(formElement => {
+        const deleteFormElement = document.querySelectorAll('.form-delete');
+        deleteFormElement.forEach(formElement => {
             formElement.addEventListener('submit', function (event){
+
+                const name = this.getAttribute('data-comic-name');
                 event.preventDefault();
 
-                const result = window.confirm('Sei sicuro di voler continuare?');
+                const result = window.confirm(`Sei sicuro di voler eliminare "${name}"?`);
                 if (result) this.sumbit();
             })
         });
+
     </script>
 @endsection
