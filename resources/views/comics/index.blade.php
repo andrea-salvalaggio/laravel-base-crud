@@ -6,6 +6,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 my-5">
+                @if (session('delete'))
+                    <div class="alert alert-warning">
+                        "{{ session('delete') }}" è stato rimosso con successo.
+                    </div>
+                @endif
                 <table class="table table-striped">
                     <thead>
                         <tr>
