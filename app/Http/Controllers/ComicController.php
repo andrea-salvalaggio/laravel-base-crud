@@ -79,7 +79,8 @@ class ComicController extends Controller
     public function edit($id)
     {
         $comic = Comic::findOrFail($id);
-        return view('comics.edit', compact('comic'));
+        $types = DB::table('comics')->select('type as type_name')->distinct()->get();
+        return view('comics.edit', compact(['comic', 'types']));
     }
 
     /**
