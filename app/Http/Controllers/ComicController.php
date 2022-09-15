@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -26,7 +27,8 @@ class ComicController extends Controller
      */
     public function create()
     {
-        return view('comics.create');
+        $types = DB::table('comics')->select('type as type_name')->distinct()->get();
+        return view('comics.create', compact('types'));
     }
 
     /**

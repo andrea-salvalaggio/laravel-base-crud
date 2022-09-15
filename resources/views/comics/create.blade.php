@@ -32,9 +32,9 @@
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Type</label>
                         <select class="form-select" aria-label="Default select example" name="type" required>
-                            <option selected>Choose type of comics</option>
-                            <option value="comic book">comic book</option>
-                            <option value="graphic novel">graphic novel</option>
+                            @foreach ( $types as $type)
+                                <option value="{{ $type->type_name }}"> {{ $type->type_name }} </option>     
+                            @endforeach
                         </select>
                     </div>
 
