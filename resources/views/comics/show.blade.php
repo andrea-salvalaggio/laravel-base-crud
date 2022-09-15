@@ -14,7 +14,8 @@
                 <hr>
                 <p class="fw-bold"> € {{ $comic->price }}</p>
                 <div class="text-center mt-5">
-                    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-outline-success">Edit this comic</a>
+                    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-outline-success me-3">Edit this comic</a>
+                    <a href="#" class="btn btn-outline-danger">Delete this comic</a>
                 </div>
             </div>
         </div>
