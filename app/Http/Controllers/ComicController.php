@@ -91,7 +91,13 @@ class ComicController extends Controller
     {
         $data = $request->all();
         $comic = Comic::findOrFail($id);
-        $comic->title = "Titolo edit prova";
+        $comic->title = $data['title'];
+        $comic->thumb = $data['thumb'];
+        $comic->description = $data['description'];
+        $comic->series = $data['series'];
+        $comic->type = $data['type'];
+        $comic->sale_date = $data['sale_date'];
+        $comic->price = $data['price'];
         $comic->save();
 
         return redirect()->route('comics.show', $comic->id);

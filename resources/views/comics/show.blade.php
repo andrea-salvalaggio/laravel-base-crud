@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 my-5">
-                <img class="mb-3 rounded-1" src=" {{ $comic->thumb }} " alt=" {{ $comic->title }} ">
+                <img class="mb-3 rounded-1" src=" {{ $comic->thumb }} " alt=" Image of {{ $comic->title }} ">
                 <h3 class="fw-bold"> {{ $comic->title }}</h3>
                 <span class="badge text-bg-danger"> Last sale: {{ $comic->sale_date }} </span>
                 <span class="badge text-bg-secondary"> {{ $comic->type }} </span>
