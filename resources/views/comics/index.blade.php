@@ -11,6 +11,12 @@
                         "{{ session('delete') }}" è stato rimosso con successo.
                     </div>
                 @endif
+
+                @if (session('created'))
+                    <div class="alert alert-success">
+                        "{{ session('created') }}" è stato creato con successo.
+                    </div>
+                @endif
                 <table class="table table-striped">
                     <thead>
                         <tr>

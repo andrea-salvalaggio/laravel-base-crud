@@ -52,7 +52,7 @@ class ComicController extends Controller
         $comic->slug = Str::slug($comic->title, '-') . '-' . $lastComicId;
         $comic->save();
 
-        return redirect()->route('comics.show', $comic->id);
+        return redirect()->route('comics.index')->with('created', $comic->title);
         }
 
     /**
