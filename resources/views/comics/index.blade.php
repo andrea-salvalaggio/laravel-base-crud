@@ -71,7 +71,7 @@
                 event.preventDefault();
 
                 const result = window.confirm(`Sei sicuro di voler eliminare "${name}"?`);
-                if (result) this.sumbit();
+                if (result) this.submit();
             })
         });
 
