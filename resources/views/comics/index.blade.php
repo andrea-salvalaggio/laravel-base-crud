@@ -15,19 +15,18 @@
                           <th>Type</th>
                           <th>Sale Date</th>
                           <th>Price</th>
-                          <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($comics as $comic)
                             <tr>
                                 <td> {{ $comic->id }} </td>
-                                <td> <a href="{{ route('comics.show', $comic->id) }}"> {{ $comic->title }} </a></td>
+                                <td> <a href="{{ route('comics.show', $comic->id) }}"> {{ $comic->title }}</a> </td>
                                 <td> {{ $comic->series }} </td>
                                 <td> {{ $comic->type }} </td>
                                 <td> {{ $comic->sale_date }} </td>
                                 <td> {{ $comic->price }} </td>
-                                <td> <button type="button" class="btn btn-success">Edit</button> </td>
+                                <td> <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-success">Edit</a> </td>
                             </tr>
                         @empty
                             <tr>

@@ -16,7 +16,7 @@
                     </li>
                 </ul>
                 <div>
-                    <button type="button" class="btn btn-primary link-text"><a href="{{ route('comics.create') }}">Add new comic</a></button> 
+                    <a href="{{ route('comics.create') }}" class="btn btn-primary">Add new comic</a>
                 </div>
             </div>
         </div>
