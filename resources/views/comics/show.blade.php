@@ -15,7 +15,12 @@
                 <p class="fw-bold"> € {{ $comic->price }}</p>
                 <div class="text-center mt-5">
                     <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-outline-success me-3">Edit this comic</a>
-                    <a href="#" class="btn btn-outline-danger">Delete this comic</a>
+                    <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        
+                        <button type="submit" class="btn btn-outline-danger">Delete this comic</button>
+                    </form>
                 </div>
             </div>
         </div>
