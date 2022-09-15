@@ -61,11 +61,14 @@
 
 @section('footer-scripts')
     <script>
-        const result = window.confirm('Sei sicuro di voler continuare?');
+        
         const deleteFormElement = document.querySelectorAll('.delete-form');
         deleteFormElement.array.forEach(formElement => {
             formElement.addEventListener('submit', function (event){
                 event.preventDefault();
+
+                const result = window.confirm('Sei sicuro di voler continuare?');
+                if (result) this.sumbit();
             })
         });
     </script>
