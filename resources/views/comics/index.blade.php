@@ -19,15 +19,22 @@
                     </thead>
                     <tbody>
                         @forelse ($comics as $comic)
-                            <tr>
+                            <tr class="align-middle">
                                 <td> {{ $comic->id }} </td>
                                 <td> <a href="{{ route('comics.show', $comic->id) }}"> {{ $comic->title }}</a> </td>
                                 <td> {{ $comic->series }} </td>
                                 <td> {{ $comic->type }} </td>
                                 <td> {{ $comic->sale_date }} </td>
                                 <td> {{ $comic->price }} </td>
-                                <td> <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-success">Edit</a> </td>
-                                <td> <a href="#" class="btn btn-danger">Delete</a> </td>
+                                <td>
+                                    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-success">Edit</a>
+                                    <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @empty
                             <tr>
