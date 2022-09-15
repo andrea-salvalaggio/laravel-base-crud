@@ -5,9 +5,10 @@
 @section('main-content')
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <form action="{{ route('comics.store') }}" method="POST">
+            <div class="col-12 my-5">
+                <form action="{{ route('comics.update', $comic->id) }}" method="POST">
                     @csrf
+                    @method('PUT')
 
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Title</label>
@@ -55,7 +56,7 @@
                     </div>
 
                     <div class="text-center mt-5">
-                        <button type="submit" class="btn btn-outline-primary">Send your comic</button>
+                        <button type="submit" class="btn btn-outline-primary">Edit your comic</button>
                     </div>
                 </form>
             </div>
