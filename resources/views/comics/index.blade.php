@@ -15,6 +15,7 @@
                           <th>Type</th>
                           <th>Sale Date</th>
                           <th>Price</th>
+                          <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,6 +27,7 @@
                                 <td> {{ $comic->type }} </td>
                                 <td> {{ $comic->sale_date }} </td>
                                 <td> {{ $comic->price }} </td>
+                                <td> <button type="button" class="btn btn-success">Edit</button> </td>
                             </tr>
                         @empty
                             <tr>
