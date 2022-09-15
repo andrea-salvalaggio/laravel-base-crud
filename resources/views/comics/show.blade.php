@@ -13,6 +13,9 @@
                 <p class="mt-3"> {{ $comic->description }}</p>
                 <hr>
                 <p class="fw-bold"> € {{ $comic->price }}</p>
+                <div class="text-center mt-5">
+                    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-outline-success">Edit this comic</a>
+                </div>
             </div>
         </div>
     </div>
