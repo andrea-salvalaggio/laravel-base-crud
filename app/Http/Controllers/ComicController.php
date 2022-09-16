@@ -54,6 +54,18 @@ class ComicController extends Controller
             [
                 'title.required' => 'È necessario inserire un titolo',
                 'title.min' => 'Il titolo deve avere almeno 3 caratteri',
+                'thumb.required' => 'È necessario inserire un link ad una immagine',
+                'thumb.min' => 'Il link deve avere almeno 5 caratteri',
+                'description.required' => 'È necessario inserire una descrizione',
+                'description.min' => 'La descrizione deve avere almeno 10 caratteri',
+                'series.required' => 'È necessario inserire una serie',
+                'series.min' => 'La serie deve avere almeno 3 caratteri',
+                'type.required' => 'È necessario selezionare una tipologia',
+                'sale_date.required' => 'È necessario inserire una data',
+                'sale_date.after' => 'La data deve essere dopo il 01/01/1900',
+                'price.required' => 'È necessario inserire una prezzo',
+                'price.numeric' => 'Il prezzo deve essere un numero',
+                'price.between' => 'Il prezzo deve essere un numero compreso tra 10 e 100',
 
             ]
         );
