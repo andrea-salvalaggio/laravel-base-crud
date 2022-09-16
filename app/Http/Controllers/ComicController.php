@@ -12,7 +12,7 @@ class ComicController extends Controller
 
     protected $validateData = [
             'title' => 'required|min:3|max:255|unique:comics',
-            'thumb' => 'required|min:5',
+            'thumb' => 'required|active_url',
             'description' => 'required|min:10',
             'series' => 'required|min:3|max:255',
             'type' => 'required|exists:comics,type',
@@ -24,7 +24,7 @@ class ComicController extends Controller
             'title.required' => 'È necessario inserire un titolo',
             'title.min' => 'Il titolo deve avere almeno 3 caratteri',
             'thumb.required' => 'È necessario inserire un link ad una immagine',
-            'thumb.min' => 'Il link deve avere almeno 5 caratteri',
+            'thumb.active_url' => 'Il link deve inziare con "https://" ',
             'description.required' => 'È necessario inserire una descrizione',
             'description.min' => 'La descrizione deve avere almeno 10 caratteri',
             'series.required' => 'È necessario inserire una serie',
