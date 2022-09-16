@@ -9,11 +9,40 @@ use Illuminate\Support\Str;
 
 class ComicController extends Controller
 {
+
+    protected $validateData = [
+            'title' => 'required|min:3|max:255|unique:comics',
+            'thumb' => 'required|min:5',
+            'description' => 'required|min:10',
+            'series' => 'required|min:3|max:255',
+            'type' => 'required|exists:comics,type',
+            'sale_date' => 'required|date|after:1900/01/01',
+            'price' => 'required|numeric|between:5,100',
+    ];
+
+    protected $customValidateMsgs = [
+            'title.required' => 'È necessario inserire un titolo',
+            'title.min' => 'Il titolo deve avere almeno 3 caratteri',
+            'thumb.required' => 'È necessario inserire un link ad una immagine',
+            'thumb.min' => 'Il link deve avere almeno 5 caratteri',
+            'description.required' => 'È necessario inserire una descrizione',
+            'description.min' => 'La descrizione deve avere almeno 10 caratteri',
+            'series.required' => 'È necessario inserire una serie',
+            'series.min' => 'La serie deve avere almeno 3 caratteri',
+            'type.required' => 'È necessario selezionare una tipologia',
+            'type.exists' => 'Il tipo selezionato non è disponibile nella lista',
+            'sale_date.required' => 'È necessario inserire una data',
+            'sale_date.after' => 'La data deve essere dopo il 01/01/1900',
+            'price.required' => 'È necessario inserire una prezzo',
+            'price.numeric' => 'Il prezzo deve essere un numero',
+            'price.between' => 'Il prezzo deve essere almeno di 5€',
+    ];
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function index()
     {
         $comics = Comic::all();
@@ -41,34 +70,7 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
-        $validatedData = $request->validate(
-            [
-                'title' => 'required|min:3|max:255|unique:comics',
-                'thumb' => 'required|min:5',
-                'description' => 'required|min:10',
-                'series' => 'required|min:3|max:255',
-                'type' => 'required|exists:comics,type',
-                'sale_date' => 'required|date|after:1900/01/01',
-                'price' => 'required|numeric|between:10,100',
-            ],
-            [
-                'title.required' => 'È necessario inserire un titolo',
-                'title.min' => 'Il titolo deve avere almeno 3 caratteri',
-                'thumb.required' => 'È necessario inserire un link ad una immagine',
-                'thumb.min' => 'Il link deve avere almeno 5 caratteri',
-                'description.required' => 'È necessario inserire una descrizione',
-                'description.min' => 'La descrizione deve avere almeno 10 caratteri',
-                'series.required' => 'È necessario inserire una serie',
-                'series.min' => 'La serie deve avere almeno 3 caratteri',
-                'type.required' => 'È necessario selezionare una tipologia',
-                'sale_date.required' => 'È necessario inserire una data',
-                'sale_date.after' => 'La data deve essere dopo il 01/01/1900',
-                'price.required' => 'È necessario inserire una prezzo',
-                'price.numeric' => 'Il prezzo deve essere un numero',
-                'price.between' => 'Il prezzo deve essere un numero compreso tra 10 e 100',
-
-            ]
-        );
+        $validatedData = $request->validate($this->validateData, $this->customValidateMsgs);
 
         $comic = new Comic();
         $comic->title = $data['title'];
@@ -121,6 +123,8 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validatedData = $request->validate($this->validateData, $this->customValidateMsgs);
+
         $data = $request->all();
         $comic = Comic::findOrFail($id);
         $comic->title = $data['title'];
