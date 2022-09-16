@@ -41,6 +41,18 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
+        $validatedData = $request->validate(
+            [
+                'title' => 'required|min:3|max:255|unique:comics',
+                'thumb' => 'required|min:5',
+                'description' => 'required|min:10',
+                'series' => 'required|min:3|max:255',
+                'type' => 'required|exists:comics,type',
+                'sale_date' => 'required|date|after:1900/01/01',
+                'price' => 'required|numeric|between:10,100',
+            ]
+        );
+
         $comic = new Comic();
         $comic->title = $data['title'];
         $comic->thumb = $data['thumb'];
@@ -54,11 +66,7 @@ class ComicController extends Controller
         $comic->slug = Str::slug($comic->title, '-') . '-' . $lastComicId;
         $comic->save();
 
-        $validatedData = $request->validate([
-            'title' => 'required|unique:comics|min:3|max:255',
-        ]);
-
-        return redirect()->route('comics.index')->with('created', $comic->title, $validatedData);
+        return redirect()->route('comics.index')->with('created', $comic->title);
         }
 
     /**

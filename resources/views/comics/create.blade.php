@@ -9,10 +9,6 @@
                 <form action="{{ route('comics.store') }}" method="POST">
                     @csrf
 
-                    <div class="form-group mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="input-title" name="title" required>
-                    </div>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -22,6 +18,11 @@
                             </ul>
                         </div>
                     @endif
+
+                    <div class="form-group mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="input-title" name="title" required>
+                    </div>
 
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Cover</label>
