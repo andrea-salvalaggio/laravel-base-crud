@@ -14,7 +14,7 @@
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Title</label>
                         <input type="text" class="form-control" id="input-title" name="title"
-                            value="{{ $comic->title }}" required>
+                            value="{{ old('title', $comic->title) }}" required>
                     </div>
                     @error('title')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -23,7 +23,7 @@
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Cover</label>
                         <input type="text" class="form-control" id="input-cover" name="thumb"
-                            value="{{ $comic->thumb }}" required>
+                            value="{{ old('thumb', $comic->thumb) }}" required>
                     </div>
                     @error('thumb')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -31,7 +31,7 @@
 
                     <div class="form-group mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                        <textarea class="form-control" id="input-description" rows="3" name="description"> {{ $comic->description }} </textarea>
+                        <textarea class="form-control" id="input-description" rows="3" name="description"> {{ old('description', $comic->description) }} </textarea>
                     </div>
                     @error('description')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -40,7 +40,7 @@
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Series</label>
                         <input type="text" class="form-control" id="input-series" name="series"
-                            value="{{ $comic->series }}" required>
+                            value="{{ old('series', $comic->series) }}" required>
                     </div>
                     @error('series')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -62,7 +62,7 @@
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Sale date</label>
                         <input type="date" class="form-control" id="input-date" name="sale_date"
-                            value="{{ $comic->sale_date }}" required>
+                            value="{{ old('sale_date', $comic->sale_date) }}" required>
                     </div>
                     @error('sale_date')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -73,7 +73,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">€</span>
                         </div>
-                        <input type="text" class="form-control" name="price" value="{{ $comic->price }}" required>
+                        <input type="text" class="form-control" name="price" value="{{ old('price', $comic->price) }}" required>
                         <div class="input-group-append">
                             <span class="input-group-text">.00</span>
                         </div>
