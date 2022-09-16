@@ -50,6 +50,11 @@ class ComicController extends Controller
                 'type' => 'required|exists:comics,type',
                 'sale_date' => 'required|date|after:1900/01/01',
                 'price' => 'required|numeric|between:10,100',
+            ],
+            [
+                'title.required' => 'È necessario inserire un titolo',
+                'title.min' => 'Il titolo deve avere almeno 3 caratteri',
+
             ]
         );
 
