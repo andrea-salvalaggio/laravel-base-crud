@@ -54,7 +54,11 @@ class ComicController extends Controller
         $comic->slug = Str::slug($comic->title, '-') . '-' . $lastComicId;
         $comic->save();
 
-        return redirect()->route('comics.index')->with('created', $comic->title);
+        $validatedData = $request->validate([
+            'title' => 'required|unique:comics|min:3|max:255',
+        ]);
+
+        return redirect()->route('comics.index')->with('created', $comic->title, $validatedData);
         }
 
     /**

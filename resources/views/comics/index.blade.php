@@ -20,12 +20,12 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                          <th>ID</th>
-                          <th>Title</th>
-                          <th>Series</th>
-                          <th>Type</th>
-                          <th>Sale Date</th>
-                          <th>Price</th>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Series</th>
+                            <th>Type</th>
+                            <th>Sale Date</th>
+                            <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>

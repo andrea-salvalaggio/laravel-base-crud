@@ -13,6 +13,15 @@
                         <label for="exampleFormControlInput1" class="form-label">Title</label>
                         <input type="text" class="form-control" id="input-title" name="title" required>
                     </div>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Cover</label>
@@ -32,8 +41,8 @@
                     <div class="form-group mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Type</label>
                         <select class="form-select" aria-label="Default select example" name="type" required>
-                            @foreach ( $types as $type)
-                                <option value="{{ $type->type_name }}"> {{ $type->type_name }} </option>     
+                            @foreach ($types as $type)
+                                <option value="{{ $type->type_name }}"> {{ $type->type_name }} </option>
                             @endforeach
                         </select>
                     </div>
